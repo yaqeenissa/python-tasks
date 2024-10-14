@@ -3,17 +3,16 @@ from Node import Node
 
 class Solution(object):
     def removeElements(self, head: Node, val: int) -> Node:
-        # Create a dummy node to handle edge cases like removing the head
         item = Node(next_node=head)
         pre, curr = item, head
 
         while curr:
             nxt = curr.next
             if curr.val == val:
-                pre.next = nxt  # Skip the node with the target value
+                pre.next = nxt
             else:
-                pre = curr  # Move previous pointer
-            curr = nxt  # Move current pointer
+                pre = curr
+            curr = nxt
 
         return item.next
 
@@ -34,7 +33,6 @@ def main():
     solution = Solution()
     new_head = solution.removeElements(head, 3)
 
-    # Print the resulting list
     current = new_head
     while current:
         print(current.val, end=" -> ")
